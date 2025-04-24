@@ -55,7 +55,7 @@ def create_labels(data_list):
 
 if __name__ == "__main__":
     # Example data for QR codes
-    data_list = [f'http://clconcord.ddns.org:8082/{i}' for i in range(1, 61)]
+    data_list = [f'http://svpserver5.ddns.net:8082/{i}' for i in range(1, 61)]
     
     # Create labels with the specified data
     create_labels(data_list)

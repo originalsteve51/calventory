@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calvary Property Control</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+.container {
+    max-width: 800px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.title {
+    font-size: 18pt;
+    margin-bottom: 10px;
+}
+.subtitle {
+    font-size: 14pt;
+    margin-bottom: 20px;
+}
+.details-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.details-table td {
+    border: 1px solid #ddd;
+    padding: 4px;  /* Smaller padding for a more compact look */
+    font-size: 10pt;  /* Smaller font size for the text in the rows */
+}
+.details-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+.details-table tr:hover {
+    background-color: #f1f1f1;
+}
+.details-table td:first-child {
+    width: 20%;  /* Limit the width of the first column to 20% */
+}
+</style>    
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Calvary Property Control</h1>
+        <h2 class="subtitle">Item Details</h2>
+        <table class="details-table">
+            <tbody>
+                <tr>
+                    <td>ID</td>
+                    <td>{{ item['Control ID'] }}</td>
+                </tr>
+                <tr>
+                    <td>Description</td>
+                    <td>{{ item['Description'] }}</td>
+                </tr>
+                <tr>
+                    <td>Quantity</td>
+                    <td>{{ item['Quantity'] }}</td>
+                </tr>
+                <tr>
+                    <td>Unit of Measure</td>
+                    <td>{{ item['Unit of Measure'] }}</td>
+                </tr>
+                <tr>
+                    <td>In-use?</td>
+                    <td>{{ item['In-use?'] }}</td>
+                </tr>
+                <tr>
+                    <td>Date</td>
+                    <td>{{ item['In-use/Stock Date']}}</td>
+                </tr>
+                <tr>
+                    <td>Location</td>
+                    <td>{{ item['Where used/Where stocked'] }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixed Header Scrollable Table</title>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: Arial, sans-serif;
+}
+.container {
+    width: 95%;
+    margin: auto;
+    max-height: 400px;  /* Set the max height for visibility of scrollable area */
+}
+
+.title {
+    text-align: center;  /* Center align the title */
+    font-size: 24px;     /* Font size for the title */
+    font-weight: bold;    /* Bold font */
+    padding: 10px;       /* Padding for spacing */
+    background-color: #f4f4f4;  /* Background color for the title */
+    border-bottom: 2px solid #ccc; /* Bottom border for separation */
+}
+
+
+
+.header {
+    display: flex;
+    background-color: #333;
+    color: white;
+    position: sticky;  /* Makes the header sticky */
+    top: 0;  /* Sticks it to the top */
+    z-index: 1;  /* Ensures the header is above other content */
+}
+.column {
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+.id-column {
+    width: 17%;  /* Fixed width for ID column (enough for 5 digits) */
+}
+.description-column {
+    width: 83%;  /* Remaining space for Description column */
+}
+.content {
+    overflow-y: auto;  /* Enables vertical scrolling */
+    max-height: 400px;  /* Constrains the height for scrolling */
+}
+.row {
+    display: flex;
+    border-bottom: 1px solid #ddd;
+}
+/* Optional: change the background color of rows on hover */
+.row:hover {
+    background-color: #f1f1f1;
+}
+</style>
+
+</head>
+<body>
+    <div class="container">
+        <div class="title">Calvary Property Control</div>
+        <div class="header">
+            <div class="column id-column">ID #</div>
+            <div class="column description-column">Item Description</div>
+        </div>
+        <div class="content">
+            {% for property in properties.iterrows() %}
+            <div class="row">
+                <div class="column id-column">
+                    {{property[1]['Control ID']}}
+                </div>
+                <div class="column description-column">
+                    <a href="{{ url_for('property_detail', property_id=property[1]['Control ID']) }}">
+                        {{ property[1]['Description'] }}
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
