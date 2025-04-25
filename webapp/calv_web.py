@@ -29,9 +29,16 @@ def index():
 @app.route('/<int:property_id>')
 def property_detail(property_id):
     properties = load_properties(properties_path)
+
+    # Obtain the row for the specified property id
     property_item = properties[properties['Control ID'] == property_id].iloc[0]
-    # print(f'-------> {property_item}')
-    return render_template('property_detail.html', item=property_item)
+    
+    # Also get the column names for the details contained in the row
+    col_names = properties.columns.tolist()
+
+    return render_template('property_detail.html', 
+                            item=property_item, 
+                            col_names=col_names)
 
 @app.route('/upload', methods=['POST'])
 def upload_file():

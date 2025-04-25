@@ -53,34 +53,12 @@ body {
         <h2 class="subtitle">Item Details</h2>
         <table class="details-table">
             <tbody>
+                {% for col_name in col_names %}
                 <tr>
-                    <td>ID</td>
-                    <td>{{ item['Control ID'] }}</td>
+                    <td>{{ col_name }}</td>
+                    <td>{{ item[col_name] }}</td>
                 </tr>
-                <tr>
-                    <td>Description</td>
-                    <td>{{ item['Description'] }}</td>
-                </tr>
-                <tr>
-                    <td>Quantity</td>
-                    <td>{{ item['Quantity'] }}</td>
-                </tr>
-                <tr>
-                    <td>Unit of Measure</td>
-                    <td>{{ item['Unit of Measure'] }}</td>
-                </tr>
-                <tr>
-                    <td>In-use?</td>
-                    <td>{{ item['In-use?'] }}</td>
-                </tr>
-                <tr>
-                    <td>Date</td>
-                    <td>{{ item['In-use/Stock Date']}}</td>
-                </tr>
-                <tr>
-                    <td>Location</td>
-                    <td>{{ item['Where used/Where stocked'] }}</td>
-                </tr>
+                {% endfor %}
             </tbody>
         </table>
     </div>
